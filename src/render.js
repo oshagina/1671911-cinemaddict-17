@@ -4,13 +4,20 @@ const RenderPosition = {
   BEFOREEND: 'beforeend',
   AFTEREND: 'afterend',
 };
+// Принцип работы
+//1.создаём  пустой div-блок
+//2.берём HTML  в виде строки и вкладываем в этот  div-блок, превращая в DOM-элемент
+//3. Возвращаем этот DOM -элемент
 
 const createElement = (template) => {
-  const newElement = document.createElement('div');
-  newElement.innerHTML = template;
+  const newElement = document.createElement('div');//1
+  newElement.innerHTML = template;//2
 
-  return newElement.firstElementChild;
+  return newElement.firstElementChild;//3
 };
+//Единственный ньюанс, что HTML в строке должен иметь общую обертку,
+// то есть быть чем-то вроде <nav><<a>Link 1</a><a> Link 2</a></nav>,
+//  а не просто <a> Link 1</a><a>Link 2</a>
 
 const render = (component, container, place = RenderPosition.BEFOREEND) => {
   const element = component.getElement();
