@@ -1,10 +1,11 @@
 import {createElement} from '../render.js';
 
-const createFilmsTemplate = () => '<section class="films-list"></section>';
-export default class FilmsListView {
+const createFilmsContainerTemplate = () => '<div class="films-list-container"></div>';
+
+export default class FilmsListContainerView {
 //метод чтобы получить шаблон разметки
   getTemplate() {
-    return createFilmsTemplate();
+    return createFilmsContainerTemplate();
   }
 
   //метод, который позволяет на основе шаблона создать ДОМ-элемент
